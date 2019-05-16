@@ -81,9 +81,7 @@ $app->get('/room/:name', 'cors', function($name) use ($app) {
         echo json_encode($responseData);
     }
     else {
-        $session = $app->opentok->createSession(array(
-            'mediaMode' => MediaMode::RELAYED
-        ));
+        $session = $app->opentok->createSession();
 
         // store the sessionId into local
         $app->storage[$name] = $session->getSessionId();
